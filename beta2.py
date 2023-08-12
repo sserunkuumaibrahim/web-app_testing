@@ -35,7 +35,7 @@ def packet_handler(packet):
             analyzed_packets.append((time.time(), "XSS detected:", payload))
 
 # Starting packet capture
-sniff(filter="tcp port 443", prn=packet_handler, store=0, timeout=60)
+sniff(filter="tcp port 443 or 80", prn=packet_handler, store=0, timeout=60)
 
 # Checking if any vulnerabilities were found
 if not analyzed_packets:
